@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: rgb(76, 112, 178);
+            color: white;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            background-color: #eee;
+            padding: 1em;
+        }
+
+        nav a {
+            text-decoration: none;
+            padding: 0.5em 1em;
+            margin: 0 1em;
+            color: #333;
+            border-radius: 5px;
+            background-color: #fff;
+        }
+
+        section {
+            padding: 2em;
+        }
+
+        footer {
+            background-color: rgb(76, 112, 178);
+            color: white;
+            text-align: center;
+            padding: 1em;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Admin Panel</h1>
+    </header>
+
+    <nav>
+        <a href="#">Dashboard</a>
+        <a href="#">Users</a>
+        <a href="#">Settings</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </nav>
+
+    <section>
+        <h2>Welcome, {{user.username}}!</h2>
+        <!-- Add content specific to the admin panel here -->
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Website Name</p>
+    </footer>
+</body>
+
+</html>

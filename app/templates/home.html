@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #74717128;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            text-align: center;
+        }
+
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #3498db;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h1>Welcome to the Home Page</h1>
+    <a href="{% url 'signup_page' %}" class="button" id="registerLink">Register Account</a>
+    <a href="{% url 'login_page' %}" class="button" id="loginLink">Login</a>
+</div>
+
+<script>
+    // JavaScript for handling link clicks (you can add more functionality here)
+    document.getElementById('registerLink').addEventListener('click', function () {
+        alert('Redirect to Register Page'); // You can replace this with actual navigation logic
+    });
+
+    document.getElementById('loginLink').addEventListener('click', function () {
+        alert('Redirect to Login Page'); // You can replace this with actual navigation logic
+    });
+</script>
+
+</body>
+</html>

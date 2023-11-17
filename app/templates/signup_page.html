@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #7471714a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        #container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+        }
+
+        #error-message {
+            color: red;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <h2>Registration</h2>
+    <form id="registrationForm" onsubmit="return validateForm()" method="post" action="{% url 'create_user' %}">
+        {% csrf_token %}
+        <label for="firstName">First Name:</label>
+        <input type="text" id="firstName" name="first_name" required>
+
+        <label for="lastName">Last Name:</label>
+        <input type="text" id="lastName" name="last_name" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" name="cpassword" required>
+
+        <button type="submit">Register</button><br><br>
+        <a style="text-decoration: none;" href="{% url 'login_page' %}">Already have an account?</a>
+    </form>
+
+    <p id="error-message"></p>
+</div>
+
+<script>
+    function validateForm() {
+        var password = document.getElementById('password').value;
+        var confirmPassword = document.getElementById('confirmPassword').value;
+
+        if (password !== confirmPassword) {
+            document.getElementById('error-message').innerText = 'Passwords do not match';
+            return false;
+        } else {
+            document.getElementById('error-message').innerText = '';
+            return true;
+        }
+    }
+</script>
+
+</body>
+</html>
